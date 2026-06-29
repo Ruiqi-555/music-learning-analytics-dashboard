@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data and database
+data/
+*.db
+*.sqlite
+*.sqlite3
+*.csv
+*.xlsx
+*.json
+*.parquet
+
+# Generated outputs
+outputs/
+results/
+pics/
+*.png
+*.jpg
+*.jpeg
+*.pdf
+
+# Documents and slides
+*.docx
+*.pptx
+
+# Environment
+.env
+.venv/
+venv/
+
+# System
+.DS_Store
