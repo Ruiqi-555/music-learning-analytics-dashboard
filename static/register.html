@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join Rhythm - Feel the Beat</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+
+    body {
+        font-family: 'Outfit', sans-serif;
+        background-color: #0f0c29;
+        overflow-x: hidden;
+    }
+    .gradient-bg {
+        background: linear-gradient(125deg, #0f0c29, #302b63, #24243e);
+        background-size: 400% 400%;
+        animation: gradientMove 15s ease infinite;
+        position: absolute;
+        inset: 0;
+        z-index: -2;
+    }
+
+    @keyframes gradientMove {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    .blob {
+        position: absolute;
+        filter: blur(80px);
+        z-index: -1;
+        opacity: 0.6;
+        animation: float 10s infinite ease-in-out;
+    }
+    .blob-1 { top: -10%; left: -10%; width: 500px; height: 500px; background: #7b2cbf; animation-delay: 0s; }
+    .blob-2 { bottom: -10%; right: -10%; width: 400px; height: 400px; background: #ff006e; animation-delay: -5s; }
+
+    @keyframes float {
+        0%, 100% { transform: translate(0, 0); }
+        50% { transform: translate(30px, 50px); }
+    }
+
+    .glass-card {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+
+    .custom-input {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: white;
+        transition: all 0.3s ease;
+    }
+    .custom-input:focus {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: #c77dff;
+        box-shadow: 0 0 0 4px rgba(199, 125, 255, 0.1);
+        outline: none;
+    }
+    .custom-input::placeholder { color: rgba(255, 255, 255, 0.3); }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.2); border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.4); }
+
+    .custom-checkbox {
+        appearance: none;
+        background-color: rgba(255,255,255,0.1);
+        border: 1px solid rgba(255,255,255,0.3);
+    }
+    .custom-checkbox:checked {
+        background-color: #c77dff;
+        border-color: #c77dff;
+        background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 relative text-white">
+
+  <div class="gradient-bg"></div>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+
+  <div class="glass-card w-full max-w-6xl rounded-3xl overflow-hidden flex flex-col lg:flex-row h-[90vh] lg:h-[850px]">
+
+    <div class="relative lg:w-5/12 p-12 flex flex-col justify-between overflow-hidden group">
+        <div class="absolute inset-0 bg-black/40 z-0"></div>
+        <img src="https://images.unsplash.com/photo-1493225255756-d9584f8606e9?q=80&w=2070&auto=format&fit=crop"
+             class="absolute inset-0 w-full h-full object-cover -z-10 transition-transform duration-700 group-hover:scale-110"
+             alt="Music Vibe">
+
+        <div class="relative z-10">
+            <div class="text-white font-bold text-2xl tracking-widest flex items-center gap-2">
+                <i class="fa-solid fa-record-vinyl text-fuchsia-500 animate-spin-slow" style="animation-duration: 5s;"></i>
+                RHYTHM
+            </div>
+        </div>
+
+        <div class="relative z-10 mt-auto">
+            <h1 class="text-5xl lg:text-6xl font-bold leading-tight mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white to-white/70">
+                Unlock the<br>Soundscape.
+            </h1>
+            <div class="flex gap-2 mb-8">
+                <span class="h-1 w-10 bg-fuchsia-500 rounded-full"></span>
+                <span class="h-1 w-2 bg-white/50 rounded-full"></span>
+                <span class="h-1 w-2 bg-white/50 rounded-full"></span>
+            </div>
+            <p class="text-gray-300 text-sm font-light max-w-xs glass-card p-4 rounded-xl border-0 bg-black/30">
+                "Rhythm isn't just an app, it's a gateway to sonic perfection. Join millions of audiophiles today."
+            </p>
+        </div>
+    </div>
+
+    <div class="relative lg:w-7/12 bg-black/20 flex flex-col">
+        <div class="flex-1 overflow-y-auto p-8 lg:p-12 scroll-smooth">
+
+            <div class="max-w-md mx-auto">
+                <div class="mb-8 text-center lg:text-left">
+                    <h2 class="text-3xl font-bold mb-2">Create Account</h2>
+                    <p class="text-gray-400 text-sm">Join us and get 1 month of <span class="text-fuchsia-400">Premium</span> for free.</p>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 mb-8">
+                    <button type="button" class="flex items-center justify-center py-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition text-sm font-medium gap-3 group">
+                        <i class="fa-brands fa-google text-white group-hover:scale-110 transition"></i> Google
+                    </button>
+                    <button type="button" class="flex items-center justify-center py-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition text-sm font-medium gap-3 group">
+                        <i class="fa-brands fa-apple text-white text-lg group-hover:scale-110 transition"></i> Apple
+                    </button>
+                </div>
+
+                <div class="relative flex py-2 items-center mb-8">
+                    <div class="flex-grow border-t border-white/10"></div>
+                    <span class="flex-shrink-0 mx-4 text-gray-500 text-xs uppercase tracking-widest">Or register with email</span>
+                    <div class="flex-grow border-t border-white/10"></div>
+                </div>
+
+                <form id="reg-form" class="space-y-5">
+                    <div class="space-y-1">
+                        <label class="text-xs font-semibold text-gray-400 ml-1">EMAIL ADDRESS</label>
+                        <input type="email" name="email" class="custom-input w-full px-4 py-3 rounded-xl" placeholder="name@example.com" required>
+                    </div>
+
+                    <div class="space-y-1 relative">
+                        <label class="text-xs font-semibold text-gray-400 ml-1">PASSWORD</label>
+                        <div class="relative">
+                            <input type="password" name="password" id="password" class="custom-input w-full px-4 py-3 rounded-xl pr-10" placeholder="Min 8 characters" required minlength="8">
+                            <button type="button" id="toggle-pw" class="absolute right-3 top-3.5 text-gray-400 hover:text-white transition">
+                                <i class="fa-solid fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="space-y-1">
+                        <label class="text-xs font-semibold text-gray-400 ml-1">NICKNAME</label>
+                        <input type="text" name="nickname" class="custom-input w-full px-4 py-3 rounded-xl" placeholder="Your stage name" required>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-1">
+                            <label class="text-xs font-semibold text-gray-400 ml-1">BIRTH YEAR</label>
+                            <input type="number" name="birth_year" class="custom-input w-full px-4 py-3 rounded-xl" placeholder="YYYY" min="1900" max="2025">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-xs font-semibold text-gray-400 ml-1">GENDER</label>
+                            <select name="gender" class="custom-input w-full px-4 py-3 rounded-xl appearance-none cursor-pointer">
+                                <option value="" class="text-black">Select...</option>
+                                <option value="M" class="text-black">Male</option>
+                                <option value="F" class="text-black">Female</option>
+                                <option value="O" class="text-black">Other</option>
+                            </select>
+                            <div class="pointer-events-none absolute right-4 top-9 text-gray-400">
+                                <i class="fa-solid fa-chevron-down text-xs"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-1">
+                        <label class="text-xs font-semibold text-gray-400 ml-1">REGION</label>
+                        <input type="text" name="region" class="custom-input w-full px-4 py-3 rounded-xl" placeholder="City or Country">
+                    </div>
+
+                    <div class="flex items-start gap-3 mt-4 pt-2">
+                        <input type="checkbox" id="terms" class="mt-1 w-4 h-4 rounded custom-checkbox focus:ring-offset-0 focus:ring-0 cursor-pointer" required>
+                        <label for="terms" class="text-xs text-gray-400 leading-relaxed cursor-pointer select-none">
+                            I agree to the <a href="#" class="text-fuchsia-400 hover:text-fuchsia-300 transition">Terms of Service</a> & <a href="#" class="text-fuchsia-400 hover:text-fuchsia-300 transition">Privacy Policy</a>.
+                        </label>
+                    </div>
+
+                    <button type="submit" class="w-full py-4 rounded-xl text-sm font-bold uppercase tracking-wider mt-6 bg-gradient-to-r from-fuchsia-600 to-purple-600 hover:from-fuchsia-500 hover:to-purple-500 text-white shadow-lg shadow-purple-900/50 transition transform hover:scale-[1.01] active:scale-[0.99]">
+                        Start Listening
+                    </button>
+                </form>
+
+                <div id="status-msg" class="mt-6 hidden p-4 rounded-xl text-center text-sm font-medium backdrop-blur-md border"></div>
+
+                <div class="mt-8 text-center text-sm text-gray-400">
+                    Already a member? <a href="#" class="text-white font-bold hover:underline">Log in</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-4 border-t border-white/5 text-center lg:text-right">
+            <span class="text-xs text-gray-600">© 2025 Rhythm Demo Project</span>
+        </div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById("reg-form");
+    const msg = document.getElementById("status-msg");
+    const togglePw = document.getElementById("toggle-pw");
+    const pwInput = document.getElementById("password");
+
+    togglePw.addEventListener("click", () => {
+        const type = pwInput.getAttribute("type") === "password" ? "text" : "password";
+        pwInput.setAttribute("type", type);
+        togglePw.innerHTML = type === "password" ? '<i class="fa-solid fa-eye"></i>' : '<i class="fa-solid fa-eye-slash"></i>';
+        togglePw.classList.toggle('text-fuchsia-400');
+    });
+
+    const API_BASE = "";
+
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const btn = form.querySelector("button[type='submit']");
+        const oldText = btn.innerHTML;
+
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin mr-2"></i> SYNCING...';
+        btn.classList.add('opacity-80', 'cursor-not-allowed');
+        msg.classList.add("hidden");
+
+        try {
+            const formData = new FormData(form);
+            const payload = Object.fromEntries(formData.entries());
+            if(payload.birth_year) payload.birth_year = parseInt(payload.birth_year);
+
+            await new Promise(r => setTimeout(r, 1500));
+
+            const res = await fetch(`${API_BASE}/api/register`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+            });
+
+            const data = await res.json();
+
+            if(!res.ok) throw new Error(data.detail || "Registration failed");
+
+            msg.innerHTML = `<span class="text-emerald-300"><i class="fa-solid fa-check-circle mr-2"></i> Welcome to the club!</span>`;
+            msg.className = "mt-6 p-4 rounded-xl text-center text-sm font-medium backdrop-blur-md border bg-emerald-500/20 border-emerald-500/30 text-emerald-100 block animate-pulse";
+            form.reset();
+
+        } catch(err) {
+            msg.innerHTML = `<span class="text-red-300"><i class="fa-solid fa-triangle-exclamation mr-2"></i> ${err.message}</span>`;
+            msg.className = "mt-6 p-4 rounded-xl text-center text-sm font-medium backdrop-blur-md border bg-red-500/20 border-red-500/30 text-red-100 block";
+        } finally {
+            btn.disabled = false;
+            btn.innerHTML = oldText;
+            btn.classList.remove('opacity-80', 'cursor-not-allowed');
+        }
+    });
+  </script>
+</body>
+</html>
